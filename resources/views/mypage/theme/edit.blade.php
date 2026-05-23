@@ -139,7 +139,7 @@
                             {{ mb_substr($profile->nickname, 0, 1) }}
                         </div>
                         <div class="fw-bold">{{ $profile->nickname }}</div>
-                        <div class="small pt-public-muted">@{{ $profile->slug }}</div>
+                        <div class="small pt-public-muted">{{ '@' . $profile->slug }}</div>
                     </div>
 
                     <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
