@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ config('app.name', 'ProfTool') }} — あなたのすべてを、ひとつのページに。</title>
+        <title>{{ config('app.name', 'Profie') }} — あなたのすべてを、ひとつのページに。</title>
         <meta name="description" content="ニックネーム・自己紹介・好きなもの・推し・SNSリンクを1ページにまとめて公開できる、あたらしい自己紹介ページサービス。">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +103,7 @@
 
         <footer class="border-top py-4 mt-auto" style="background: rgba(255,255,255,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
             <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-muted">
-                <span>© {{ date('Y') }} ProfTool</span>
+                <span>© {{ date('Y') }} Profie</span>
                 <div class="d-flex gap-3 flex-wrap">
                     <a href="{{ route('terms') }}" class="text-muted text-decoration-none">利用規約</a>
                     <a href="{{ route('privacy') }}" class="text-muted text-decoration-none">プライバシー</a>

@@ -12,7 +12,7 @@ class AdminSeeder extends Seeder
 {
     public function run(): void
     {
-        $email = env('ADMIN_EMAIL', 'admin@prof-tool.local');
+        $email = env('ADMIN_EMAIL', 'admin@profie.local');
         $password = env('ADMIN_PASSWORD', 'admin-temp-password');
 
         if (User::where('email', $email)->exists()) {

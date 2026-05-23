@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ $profile->nickname }} — {{ config('app.name', 'ProfTool') }}</title>
+        <title>{{ $profile->nickname }} — {{ config('app.name', 'Profie') }}</title>
 
         @php
             $description = \Illuminate\Support\Str::limit($profile->bio ?? "{$profile->nickname} のプロフィールページ", 80);
@@ -18,7 +18,7 @@
         <meta property="og:title" content="{{ $profile->nickname }} のプロフィール">
         <meta property="og:description" content="{{ $description }}">
         <meta property="og:url" content="{{ $profile->public_url }}">
-        <meta property="og:site_name" content="{{ config('app.name', 'ProfTool') }}">
+        <meta property="og:site_name" content="{{ config('app.name', 'Profie') }}">
         <meta property="og:locale" content="ja_JP">
         @if ($ogImage)
             <meta property="og:image" content="{{ $ogImage }}">
@@ -175,7 +175,7 @@
                 @endif
 
                 <p class="text-center mt-4 mb-2 small pt-public-muted">
-                    <a href="/" class="text-decoration-none pt-public-muted">{{ config('app.name', 'ProfTool') }}</a> で作られたプロフィール
+                    <a href="/" class="text-decoration-none pt-public-muted">{{ config('app.name', 'Profie') }}</a> で作られたプロフィール
                 </p>
 
                 <p class="text-center mb-0 small pt-public-muted">

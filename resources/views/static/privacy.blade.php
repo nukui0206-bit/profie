@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>プライバシーポリシー — {{ config('app.name', 'ProfTool') }}</title>
+        <title>プライバシーポリシー — {{ config('app.name', 'Profie') }}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                 </div>
 
                 <p class="small">
-                    {{ config('app.name', 'ProfTool') }}（以下「当サービス」）は、利用者の個人情報の取扱いについて、個人情報保護法その他関連法令を遵守し、以下のとおりプライバシーポリシーを定めます。
+                    {{ config('app.name', 'Profie') }}（以下「当サービス」）は、利用者の個人情報の取扱いについて、個人情報保護法その他関連法令を遵守し、以下のとおりプライバシーポリシーを定めます。
                 </p>
 
                 <h2 class="h5 fw-bold mt-4">1. 取得する情報</h2>

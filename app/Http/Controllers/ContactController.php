@@ -31,7 +31,7 @@ class ContactController extends Controller
 
         $message = sprintf(
             "[%s] からのお問い合わせ\n\nお名前：%s\nメール：%s\n\n--- 内容 ---\n%s\n",
-            config('app.name', 'ProfTool'),
+            config('app.name', 'Profie'),
             $validated['name'],
             $validated['email'],
             $validated['body'],
@@ -41,7 +41,7 @@ class ContactController extends Controller
         Mail::raw($message, function ($msg) use ($validated) {
             $msg->to(config('mail.from.address'))
                 ->replyTo($validated['email'], $validated['name'])
-                ->subject('[ProfTool] お問い合わせを受信しました');
+                ->subject('[Profie] お問い合わせを受信しました');
         });
 
         return redirect()->route('contact')->with('status', 'contact-sent');

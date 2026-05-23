@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>利用規約 — {{ config('app.name', 'ProfTool') }}</title>
+        <title>利用規約 — {{ config('app.name', 'Profie') }}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                 </div>
 
                 <p class="small">
-                    本利用規約（以下「本規約」といいます）は、{{ config('app.name', 'ProfTool') }}（以下「当サービス」）の提供条件および当サービスの運営者（以下「運営」）と利用者との間の権利義務関係を定めるものです。当サービスの利用に際しては、本規約の全文をお読みいただき、同意のうえご利用ください。
+                    本利用規約（以下「本規約」といいます）は、{{ config('app.name', 'Profie') }}（以下「当サービス」）の提供条件および当サービスの運営者（以下「運営」）と利用者との間の権利義務関係を定めるものです。当サービスの利用に際しては、本規約の全文をお読みいただき、同意のうえご利用ください。
                 </p>
 
                 <h2 class="h5 fw-bold mt-4">第1条（適用）</h2>
