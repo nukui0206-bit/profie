@@ -44,7 +44,7 @@
                                   rows="2" maxlength="500"
                                   class="form-control"
                                   placeholder="（空欄のままでもOK）">{{ old("answers.{$q->id}", optional($answers->get($q->id))->body) }}</textarea>
-                        <x-input-error :messages="$errors->get(\"answers.{$q->id}\")" />
+                        <x-input-error :messages="$errors->get('answers.' . $q->id)" />
                     </div>
                 @endforeach
             </div>
