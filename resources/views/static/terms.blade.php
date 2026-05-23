@@ -18,12 +18,12 @@
             <div class="container px-3" style="max-width: 760px;">
                 <h1 class="h3 fw-bold mb-2">利用規約</h1>
                 <p class="small text-muted mb-4">
-                    制定日：2026 年 5 月 8 日 ／ 最終改定日：2026 年 5 月 8 日
+                    制定日：2026 年 5 月 8 日 ／ 最終改定日：2026 年 5 月 24 日
                 </p>
 
-                <div class="alert alert-warning small">
-                    本利用規約は <strong>β版（弁護士による法務レビュー前）</strong> の暫定版です。<br>
-                    正式版に差し替える際は、改定日を明記のうえ通知します。
+                <div class="alert alert-info small">
+                    本利用規約は初期版です。サービスの成長とユーザーの皆様からのフィードバックに合わせて改定することがあります。<br>
+                    重要な変更を行う場合は、当サービス上での告知や改定日の更新により通知します。
                 </div>
 
                 <p class="small">
@@ -56,9 +56,11 @@
                 </ol>
 
                 <h2 class="h5 fw-bold mt-4">第4条(アカウント管理)</h2>
-                <p class="small">
-                    利用者は、自己の責任においてメールアドレスおよびパスワードを管理するものとし、第三者に譲渡・貸与してはなりません。アカウントに関する事故・損害は、利用者の故意・重過失によるものを除き運営は責任を負いません。
-                </p>
+                <ol class="small">
+                    <li>利用者は、自己の責任においてメールアドレスおよびパスワードを管理するものとし、第三者に譲渡・貸与してはなりません。</li>
+                    <li>利用者は、Google アカウント等の外部認証サービスを利用して当サービスにログインすることができます。この場合、当該外部認証サービスのアカウント管理についても、利用者自身の責任とします。</li>
+                    <li>アカウントに関する事故・損害は、利用者の故意・重過失によるものを除き運営は責任を負いません。</li>
+                </ol>
 
                 <h2 class="h5 fw-bold mt-4">第5条(利用料金)</h2>
                 <p class="small">
@@ -123,13 +125,22 @@
 
                 <h2 class="h5 fw-bold mt-4">第14条(準拠法・管轄)</h2>
                 <p class="small">
-                    本規約の解釈にあたっては、日本法を準拠法とします。当サービスに関して紛争が生じた場合には、運営の所在地を管轄する裁判所を専属的合意管轄とします。
+                    本規約の解釈にあたっては、日本法を準拠法とします。当サービスに関して紛争が生じた場合には、<strong>東京地方裁判所</strong>を第一審の専属的合意管轄裁判所とします。
                 </p>
 
                 <h2 class="h5 fw-bold mt-4">第15条(お問い合わせ)</h2>
                 <p class="small">
-                    本規約に関するお問い合わせは <a href="{{ route('contact') }}">お問い合わせフォーム</a> よりご連絡ください。
+                    本規約に関するお問い合わせは <a href="{{ route('contact') }}">お問い合わせフォーム</a> または <a href="mailto:contact@profie.me">contact@profie.me</a> 宛にご連絡ください。
                 </p>
+
+                <hr class="my-4">
+
+                <h2 class="h6 fw-bold mt-4">運営者情報</h2>
+                <ul class="small list-unstyled">
+                    <li>サービス名：{{ config('app.name', 'Profie') }}</li>
+                    <li>運営者：株式会社 L'aide</li>
+                    <li>連絡先：<a href="mailto:contact@profie.me">contact@profie.me</a></li>
+                </ul>
 
                 <p class="mt-5"><a href="/" class="small">トップへ戻る</a></p>
             </div>

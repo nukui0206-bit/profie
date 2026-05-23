@@ -27,7 +27,8 @@
 
                 <p class="text-muted small mb-4">
                     バグ報告・機能要望・運営へのご連絡はこちらのフォームからお送りください。<br>
-                    通報はお手数ですが、対象プロフィールページの「通報」リンクからお願いします。
+                    通報はお手数ですが、対象プロフィールページの「通報」リンクからお願いします。<br>
+                    フォームが使えない場合は <a href="mailto:contact@profie.me">contact@profie.me</a> 宛に直接メールでもお問い合わせいただけます。
                 </p>
 
                 <form method="post" action="{{ route('contact.send') }}" class="card border-0 shadow-sm">
