@@ -23,9 +23,17 @@
     <h2 class="h6 fw-bold text-muted mb-3" style="letter-spacing: 0.05em;">公式の質問</h2>
 
     <p class="text-muted small mb-4">
-        運営が用意した質問にあなたの言葉で答えてください。
-        空欄のまま保存すると、その質問は公開ページに表示されません（500文字以内）。
+        まずはよくある質問 {{ count($featuredQuestions) }} 問から。
+        もっと書きたい人は「もっと答える」を開いて深掘りできます。
+        空欄のまま保存した質問は、公開ページには表示されません（500文字以内）。
     </p>
+
+    <style>
+        details.pt-more-questions[open] summary .bi-chevron-down { transform: rotate(180deg); }
+        details.pt-more-questions summary .bi-chevron-down { transition: transform 0.25s ease; }
+        details.pt-more-questions summary { list-style: none; }
+        details.pt-more-questions summary::-webkit-details-marker { display: none; }
+    </style>
 
     <form method="post" action="{{ route('mypage.answers.update') }}">
         @csrf
@@ -33,8 +41,9 @@
 
         <div class="card border-0 shadow-sm mb-4">
             <div class="card-body">
-                @foreach ($officialQuestions as $idx => $q)
-                    <div class="mb-4 {{ $idx === count($officialQuestions) - 1 ? 'mb-0' : '' }}">
+                {{-- よくある質問（featured 10 問） --}}
+                @foreach ($featuredQuestions as $idx => $q)
+                    <div class="mb-4">
                         <label for="answer-{{ $q->id }}" class="form-label fw-semibold">
                             <span class="text-muted small me-2">Q{{ $loop->iteration }}.</span>
                             {{ $q->body }}
@@ -47,6 +56,33 @@
                         <x-input-error :messages="$errors->get('answers.' . $q->id)" />
                     </div>
                 @endforeach
+
+                {{-- もっと答える（others 54 問、アコーディオン） --}}
+                @if ($otherQuestions->isNotEmpty())
+                    <details class="pt-more-questions mt-4">
+                        <summary class="btn btn-outline-secondary w-100" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down me-2"></i>もっと答える（他 {{ count($otherQuestions) }} 問の質問）
+                        </summary>
+
+                        <div class="mt-4 pt-3 border-top">
+                            @foreach ($otherQuestions as $idx => $q)
+                                <div class="mb-4 {{ $loop->last ? 'mb-0' : '' }}">
+                                    @php($qNumber = count($featuredQuestions) + $loop->iteration)
+                                    <label for="answer-{{ $q->id }}" class="form-label fw-semibold">
+                                        <span class="text-muted small me-2">Q{{ $qNumber }}.</span>
+                                        {{ $q->body }}
+                                    </label>
+                                    <textarea id="answer-{{ $q->id }}"
+                                              name="answers[{{ $q->id }}]"
+                                              rows="2" maxlength="500"
+                                              class="form-control"
+                                              placeholder="（空欄のままでもOK）">{{ old("answers.{$q->id}", optional($answers->get($q->id))->body) }}</textarea>
+                                    <x-input-error :messages="$errors->get('answers.' . $q->id)" />
+                                </div>
+                            @endforeach
+                        </div>
+                    </details>
+                @endif
             </div>
         </div>
 

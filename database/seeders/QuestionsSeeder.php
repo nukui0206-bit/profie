@@ -4,38 +4,46 @@ namespace Database\Seeders;
 
 use App\Models\Question;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class QuestionsSeeder extends Seeder
 {
     public function run(): void
     {
-        // 既存の公式質問（owner_user_id IS NULL）と、それに紐づく回答を順に削除。
-        // 回答 → 質問の順に明示的に消して、FK 制約に依存しないようにする。
+        // 既存の公式質問と、それに紐づく回答を順に削除（再シード）。
         $officialIds = Question::whereNull('owner_user_id')->pluck('id');
         if ($officialIds->isNotEmpty()) {
-            \DB::table('answers')->whereIn('question_id', $officialIds)->delete();
+            DB::table('answers')->whereIn('question_id', $officialIds)->delete();
             Question::whereIn('id', $officialIds)->delete();
         }
 
-        // 前略プロフィール風 64 問
-        $questions = [
+        // よくある質問（10 問）— 入力フォームの上段に通常表示。
+        $featured = [
             '名前の由来',
             '性別',
             '誕生日',
-            '星座',
             '血液型',
+            '似ている芸能人',
+            '趣味',
+            '好きな食べ物',
+            '好きな男性のタイプ',
+            '好きな女性のタイプ',
+            'ここだけの話',
+        ];
+
+        // それ以外の質問（54 問）— アコーディオン内に格納。
+        $others = [
+            '星座',
             '前世',
             '住んでいるところ',
             '生まれたところ',
             '職業',
             '学年',
             '絡むーちょ',
-            '似ている芸能人',
             '身長',
             '体重',
             '足のサイズ',
             '手の長さ',
-            '趣味',
             '特技',
             '握力',
             '髪型',
@@ -45,11 +53,8 @@ class QuestionsSeeder extends Seeder
             '自慢なこと',
             '持っている資格',
             '使っている携帯電話',
-            '好きな男性のタイプ',
-            '好きな女性のタイプ',
             '好きな言葉',
             '好きな芸能人',
-            '好きな食べ物',
             '嫌いな食べ物',
             '好きな飲み物',
             '嫌いな飲み物',
@@ -82,15 +87,27 @@ class QuestionsSeeder extends Seeder
             '世界平和に必要なのは',
             '兎に角主張したい事',
             '疑問に思っている事',
-            'ここだけの話',
         ];
 
-        foreach ($questions as $i => $body) {
+        // featured: sort_order 1〜10
+        foreach ($featured as $i => $body) {
             Question::create([
                 'body' => $body,
                 'owner_user_id' => null,
                 'sort_order' => $i + 1,
                 'is_active' => true,
+                'is_featured' => true,
+            ]);
+        }
+
+        // others: sort_order 11〜64
+        foreach ($others as $i => $body) {
+            Question::create([
+                'body' => $body,
+                'owner_user_id' => null,
+                'sort_order' => 11 + $i,
+                'is_active' => true,
+                'is_featured' => false,
             ]);
         }
     }

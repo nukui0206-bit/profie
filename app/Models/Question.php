@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Question extends Model
 {
-    protected $fillable = ['owner_user_id', 'body', 'sort_order', 'is_active'];
+    protected $fillable = ['owner_user_id', 'body', 'sort_order', 'is_active', 'is_featured'];
 
     protected function casts(): array
     {
         return [
             'is_active' => 'boolean',
+            'is_featured' => 'boolean',
             'sort_order' => 'integer',
         ];
     }
@@ -40,6 +41,30 @@ class Question extends Model
     {
         return $query->whereNull('owner_user_id')
             ->where('is_active', true)
+            ->orderBy('sort_order');
+    }
+
+    /**
+     * 運営定義の質問のうち、よくある質問（is_featured = true）。
+     * 入力フォームの上段に通常表示する 10 問程度。
+     */
+    public function scopeFeatured($query)
+    {
+        return $query->whereNull('owner_user_id')
+            ->where('is_active', true)
+            ->where('is_featured', true)
+            ->orderBy('sort_order');
+    }
+
+    /**
+     * 運営定義の質問のうち、よくある質問以外（is_featured = false）。
+     * 入力フォームではアコーディオンに格納する。
+     */
+    public function scopeOthers($query)
+    {
+        return $query->whereNull('owner_user_id')
+            ->where('is_active', true)
+            ->where('is_featured', false)
             ->orderBy('sort_order');
     }
 

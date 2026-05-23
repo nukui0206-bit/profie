@@ -17,13 +17,14 @@ class AnswerController extends Controller
     {
         $profile = Auth::user()->profile;
 
-        $officialQuestions = Question::official()->get();
+        $featuredQuestions = Question::featured()->get();
+        $otherQuestions = Question::others()->get();
         $customQuestions = Question::customFor(Auth::id())->get();
 
         $answers = $profile->answers()->get()->keyBy('question_id');
 
         return view('mypage.answers.edit', compact(
-            'profile', 'officialQuestions', 'customQuestions', 'answers',
+            'profile', 'featuredQuestions', 'otherQuestions', 'customQuestions', 'answers',
         ));
     }
 
