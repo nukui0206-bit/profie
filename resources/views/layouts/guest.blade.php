@@ -6,7 +6,6 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Profie') }}</title>
-        <meta name="robots" content="noindex, nofollow, noarchive">
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="manifest" href="/site.webmanifest">
         <meta name="theme-color" content="#6366f1">

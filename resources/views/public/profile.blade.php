@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ $profile->nickname }} — {{ config('app.name', 'Profie') }}</title>
-        <meta name="robots" content="noindex, nofollow, noarchive">
+        @if (! $profile->is_published)
+            <meta name="robots" content="noindex, nofollow, noarchive">
+        @endif
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="manifest" href="/site.webmanifest">
         <meta name="theme-color" content="#6366f1">
