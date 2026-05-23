@@ -358,6 +358,13 @@ footer {
   border-color: var(--pt-border-strong);
 }
 
+// リンク化されたフィーチャーカード（welcome の「テーマで世界観を切替」→ /u/demo）
+.pt-feature-card-link:hover {
+  border-color: var(--pt-primary, #6366f1);
+  box-shadow: 0 10px 28px rgba(99, 102, 241, 0.18);
+  cursor: pointer;
+}
+
 .pt-feature-icon {
   display: inline-flex;
   align-items: center;

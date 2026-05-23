@@ -84,6 +84,13 @@
                                  loading="eager"
                                  class="rounded-circle mx-auto mb-3 d-block"
                                  style="width: 88px; height: 88px; object-fit: cover; border: 1px solid var(--pt-public-card-border);">
+                        @elseif ($profile->slug === 'demo')
+                            {{-- デモ専用：Profie ブランドカラーのグラデーションアバター（テーマに依存しない） --}}
+                            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle text-white fw-bold"
+                                 aria-label="{{ $profile->nickname }} のアイコン"
+                                 style="width: 88px; height: 88px; font-size: 2rem; background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); box-shadow: 0 6px 20px rgba(99,102,241,0.35); border: 3px solid rgba(255,255,255,0.95);">
+                                プ
+                            </div>
                         @else
                             <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle text-white fw-bold pt-public-avatar"
                                  aria-label="{{ $profile->nickname }} のアイコン"
@@ -199,6 +206,22 @@
                                 </div>
                             @endforeach
                         </div>
+                    </div>
+                @endif
+
+                {{-- デモ限定 CTA バナー --}}
+                @if ($profile->slug === 'demo')
+                    <div class="rounded-4 p-4 p-md-5 text-center mt-4"
+                         style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); color: white; box-shadow: 0 10px 30px rgba(99,102,241,0.25);">
+                        <h2 class="h5 fw-bold mb-2" style="color: #fff;">あなたも自分のページを作ってみる？</h2>
+                        <p class="small mb-3" style="color: rgba(255,255,255,0.92);">
+                            30 秒で完了。基本機能はずっと無料で使えます
+                        </p>
+                        <a href="{{ route('register') }}"
+                           class="btn btn-light btn-lg px-4 fw-semibold"
+                           style="color: #4f46e5; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
+                            <i class="bi bi-stars" aria-hidden="true"></i> 無料ではじめる
+                        </a>
                     </div>
                 @endif
 

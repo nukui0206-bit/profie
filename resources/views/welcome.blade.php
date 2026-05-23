@@ -103,14 +103,18 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="pt-feature-card">
+                            <a href="/u/demo" target="_blank" rel="noopener"
+                               class="pt-feature-card pt-feature-card-link d-block text-decoration-none text-reset h-100">
                                 <div class="pt-feature-icon"><i class="bi bi-palette-fill"></i></div>
                                 <h3 class="h5 fw-bold">5 つのテーマで世界観を切替</h3>
-                                <p class="text-muted small mb-0">
+                                <p class="text-muted small mb-2">
                                     モダン / 平成ピンク / ガラケー風 / 推し活ネオン / パステル。
                                     ワンタップでページの雰囲気がまるごと変わる。
                                 </p>
-                            </div>
+                                <span class="small fw-semibold" style="color: var(--pt-primary);">
+                                    デモで試す <i class="bi bi-arrow-up-right"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>

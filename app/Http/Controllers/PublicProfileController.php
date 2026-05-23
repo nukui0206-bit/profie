@@ -49,8 +49,10 @@ class PublicProfileController extends Controller
             }
         }
 
-        // ページビュー（PV）は閲覧ごとに increment
-        $profile->increment('view_count');
+        // ページビュー（PV）は閲覧ごとに increment（公式デモは集計対象外）
+        if ($profile->slug !== 'demo') {
+            $profile->increment('view_count');
+        }
 
         // 足あと（UU 寄り）は 24h 集約。ログイン者かつ自分以外のみ。
         if (Auth::check()) {
