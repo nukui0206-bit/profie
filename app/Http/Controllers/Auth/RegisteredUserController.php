@@ -29,6 +29,18 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request, SlugGenerator $slugGenerator): RedirectResponse
     {
+        // 生年月日が年/月/日 select から送られてきた場合は YYYY-MM-DD に組み立て
+        if (! $request->filled('birthdate') && $request->filled(['birthdate_year', 'birthdate_month', 'birthdate_day'])) {
+            $request->merge([
+                'birthdate' => sprintf(
+                    '%04d-%02d-%02d',
+                    (int) $request->input('birthdate_year'),
+                    (int) $request->input('birthdate_month'),
+                    (int) $request->input('birthdate_day'),
+                ),
+            ]);
+        }
+
         $maxBirthdate = Carbon::today()->subYears(13)->toDateString();
 
         $request->validate([

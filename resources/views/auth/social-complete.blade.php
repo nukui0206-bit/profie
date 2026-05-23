@@ -19,8 +19,8 @@
         @csrf
 
         <div class="mb-3">
-            <x-input-label for="birthdate" value="生年月日" />
-            <x-text-input id="birthdate" type="date" name="birthdate" :value="old('birthdate')" required autofocus />
+            <x-input-label value="生年月日" />
+            <x-birthdate-selector name="birthdate" :value="old('birthdate')" />
             <div class="form-text small">13歳以上の方のみご利用いただけます。</div>
             <x-input-error :messages="$errors->get('birthdate')" />
         </div>
