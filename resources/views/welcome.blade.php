@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'Profie') }} — あなたのすべてを、ひとつのページに。</title>
+        <meta name="robots" content="noindex, nofollow, noarchive">
         <meta name="description" content="ニックネーム・自己紹介・好きなもの・推し・SNSリンクを1ページにまとめて公開できる、あたらしい自己紹介ページサービス。">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

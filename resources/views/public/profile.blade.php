@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ $profile->nickname }} — {{ config('app.name', 'Profie') }}</title>
+        <meta name="robots" content="noindex, nofollow, noarchive">
 
         @php
             $description = \Illuminate\Support\Str::limit($profile->bio ?? "{$profile->nickname} のプロフィールページ", 80);
