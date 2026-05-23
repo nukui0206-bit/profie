@@ -182,9 +182,11 @@
                 };
 
                 const switchTheme = (key) => {
-                    // 既存の theme-* クラスを除去して新しい key を付与
+                    // 既存の theme-<key> を除去（基盤クラス theme-preview は残す）して新しい key を付与
                     [...preview.classList].forEach(c => {
-                        if (c.startsWith('theme-')) preview.classList.remove(c);
+                        if (c.startsWith('theme-') && c !== 'theme-preview') {
+                            preview.classList.remove(c);
+                        }
                     });
                     preview.classList.add('theme-' + key);
                 };
