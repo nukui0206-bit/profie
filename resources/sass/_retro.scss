@@ -231,8 +231,17 @@ a:hover {
   color: var(--pt-text);
 }
 
+// ---- Navbar / Dropdown z-index 修正 ----
+// Bootstrap 既定の dropdown z-index (1000) が、ダッシュボード等の
+// .card に被られるのを防ぐため、ナビ全体と dropdown-menu に高い z-index を設定する。
+.navbar {
+  position: relative;
+  z-index: 1080;
+}
+
 // ---- Dropdown ----
 .dropdown-menu {
+  z-index: 1080;
   border: 1px solid var(--pt-border);
   border-radius: var(--pt-radius);
   box-shadow: var(--pt-shadow-lg);

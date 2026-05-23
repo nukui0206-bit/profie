@@ -7,6 +7,9 @@
 
         <title>{{ config('app.name', 'Profie') }}</title>
         <meta name="robots" content="noindex, nofollow, noarchive">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" content="#6366f1">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

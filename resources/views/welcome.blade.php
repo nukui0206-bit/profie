@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'Profie') }} — あなたのすべてを、ひとつのページに。</title>
         <meta name="robots" content="noindex, nofollow, noarchive">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" content="#6366f1">
         <meta name="description" content="ニックネーム・自己紹介・好きなもの・推し・SNSリンクを1ページにまとめて公開できる、あたらしい自己紹介ページサービス。">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
