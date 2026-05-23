@@ -51,14 +51,15 @@
             <section class="pt-hero">
                 <div class="container text-center" style="max-width: 56rem;">
                     <span class="badge rounded-pill px-3 py-2 mb-3" style="background: rgba(99,102,241,0.08); color: var(--pt-primary); font-weight:600;">
-                        ✦ あたらしい自己紹介ページ、はじめました
+                        ✦ あなたらしさを、ひとつの URL に。
                     </span>
                     <h1 class="fw-bold">
                         あなたのすべてを、<br>
                         <span class="pt-gradient-text">ひとつのページに。</span>
                     </h1>
                     <p class="lead mt-3">
-                        ニックネーム・自己紹介・好きなもの・推し・SNS リンクを 1 ページにまとめて、URL ひとつで世界に届ける。<br>
+                        ニックネーム・好きなもの・SNS リンク・自己紹介。<br>
+                        64 問の質問とテーマ切替で、あなたらしさがそのまま伝わるプロフィールページ。<br>
                         基本機能はずっと無料で使えます。
                     </p>
                     <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mt-4">
@@ -80,9 +81,10 @@
                         <div class="col-md-4">
                             <div class="pt-feature-card">
                                 <div class="pt-feature-icon"><i class="bi bi-question-circle-fill"></i></div>
-                                <h3 class="h5 fw-bold">質問テンプレで深掘り</h3>
+                                <h3 class="h5 fw-bold">64 問の質問でじっくり自己紹介</h3>
                                 <p class="text-muted small mb-0">
-                                    「最近ハマってるもの」「無人島に1つ持ってくなら」など、答えるだけであなたらしさが伝わる質問を多数用意。
+                                    「名前の由来」「血液型」「ここだけの話」など、答えるだけであなたらしさが伝わる定番質問が多数。
+                                    オリジナル質問も追加できます。
                                 </p>
                             </div>
                         </div>
@@ -91,16 +93,18 @@
                                 <div class="pt-feature-icon"><i class="bi bi-heart-fill"></i></div>
                                 <h3 class="h5 fw-bold">好き・推し・SNS をまとめる</h3>
                                 <p class="text-muted small mb-0">
-                                    好きなものリストや SNS リンクを並べて、Lit.link のように。シェアしやすい URL もすぐ取得。
+                                    好きなものや推しタグ、SNS リンクを 1 ページに整理。
+                                    シェアしやすい URL ですぐにみんなに届けられます。
                                 </p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="pt-feature-card">
                                 <div class="pt-feature-icon"><i class="bi bi-palette-fill"></i></div>
-                                <h3 class="h5 fw-bold">テーマで世界観を切替</h3>
+                                <h3 class="h5 fw-bold">5 つのテーマで世界観を切替</h3>
                                 <p class="text-muted small mb-0">
-                                    パステル・ネオン・モノトーン・平成レトロ。ワンタップでページの雰囲気がまるごと変わる。
+                                    モダン / 平成ピンク / ガラケー風 / 推し活ネオン / パステル。
+                                    ワンタップでページの雰囲気がまるごと変わる。
                                 </p>
                             </div>
                         </div>
