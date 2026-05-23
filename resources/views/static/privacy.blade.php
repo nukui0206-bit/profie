@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>プライバシーポリシー — {{ config('app.name', 'Profie') }}</title>
+        <title>プライバシーポリシー — {{ config('app.name', 'Profim') }}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="manifest" href="/site.webmanifest">
         <meta name="theme-color" content="#6366f1">
@@ -28,7 +28,7 @@
                 </div>
 
                 <p class="small">
-                    {{ config('app.name', 'Profie') }}（以下「当サービス」）は、利用者の個人情報の取扱いについて、個人情報保護法その他関連法令を遵守し、以下のとおりプライバシーポリシーを定めます。
+                    {{ config('app.name', 'Profim') }}（以下「当サービス」）は、利用者の個人情報の取扱いについて、個人情報保護法その他関連法令を遵守し、以下のとおりプライバシーポリシーを定めます。
                 </p>
 
                 <h2 class="h5 fw-bold mt-4">1. 取得する情報</h2>
@@ -115,7 +115,7 @@
 
                 <h2 class="h6 fw-bold mt-4">運営者情報</h2>
                 <ul class="small list-unstyled">
-                    <li>サービス名：{{ config('app.name', 'Profie') }}</li>
+                    <li>サービス名：{{ config('app.name', 'Profim') }}</li>
                     <li>運営者：株式会社 L'aide</li>
                     <li>連絡先：<a href="mailto:contact@profie.me">contact@profie.me</a></li>
                 </ul>

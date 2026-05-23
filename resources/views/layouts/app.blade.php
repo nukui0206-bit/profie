@@ -5,18 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Profie') }}</title>
+        <title>{{ config('app.name', 'Profim') }}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="manifest" href="/site.webmanifest">
         <meta name="theme-color" content="#6366f1">
 
         {{-- OGP / Twitter Card（共通デフォルト）--}}
         <meta property="og:type" content="website">
-        <meta property="og:title" content="Profie — あなたのすべてを、ひとつのページに。">
+        <meta property="og:title" content="Profim — あなたのすべてを、ひとつのページに。">
         <meta property="og:description" content="ニックネーム・自己紹介・好きなもの・推し・SNS リンクを 1 ページにまとめて公開できる、あたらしい自己紹介ページサービス。">
         <meta property="og:url" content="{{ url('/') }}">
         <meta property="og:image" content="{{ url('/og-image.png') }}">
-        <meta property="og:site_name" content="Profie">
+        <meta property="og:site_name" content="Profim">
         <meta property="og:locale" content="ja_JP">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:image" content="{{ url('/og-image.png') }}">
@@ -48,7 +48,7 @@
 
         <footer class="border-top py-4 mt-auto" style="background: var(--pt-surface);">
             <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-muted">
-                <span>© {{ date('Y') }} Profie</span>
+                <span>© {{ date('Y') }} Profim</span>
                 <div class="d-flex gap-3 flex-wrap">
                     <a href="{{ route('terms') }}" class="text-muted text-decoration-none">利用規約</a>
                     <a href="{{ route('privacy') }}" class="text-muted text-decoration-none">プライバシー</a>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>利用規約 — {{ config('app.name', 'Profie') }}</title>
+        <title>利用規約 — {{ config('app.name', 'Profim') }}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="manifest" href="/site.webmanifest">
         <meta name="theme-color" content="#6366f1">
@@ -28,7 +28,7 @@
                 </div>
 
                 <p class="small">
-                    本利用規約（以下「本規約」といいます）は、{{ config('app.name', 'Profie') }}（以下「当サービス」）の提供条件および当サービスの運営者（以下「運営」）と利用者との間の権利義務関係を定めるものです。当サービスの利用に際しては、本規約の全文をお読みいただき、同意のうえご利用ください。
+                    本利用規約（以下「本規約」といいます）は、{{ config('app.name', 'Profim') }}（以下「当サービス」）の提供条件および当サービスの運営者（以下「運営」）と利用者との間の権利義務関係を定めるものです。当サービスの利用に際しては、本規約の全文をお読みいただき、同意のうえご利用ください。
                 </p>
 
                 <h2 class="h5 fw-bold mt-4">第1条（適用）</h2>
@@ -138,7 +138,7 @@
 
                 <h2 class="h6 fw-bold mt-4">運営者情報</h2>
                 <ul class="small list-unstyled">
-                    <li>サービス名：{{ config('app.name', 'Profie') }}</li>
+                    <li>サービス名：{{ config('app.name', 'Profim') }}</li>
                     <li>運営者：株式会社 L'aide</li>
                     <li>連絡先：<a href="mailto:contact@profie.me">contact@profie.me</a></li>
                 </ul>

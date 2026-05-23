@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ $profile->nickname }} — {{ config('app.name', 'Profie') }}</title>
+        <title>{{ $profile->nickname }} — {{ config('app.name', 'Profim') }}</title>
         @if (! $profile->is_published)
             <meta name="robots" content="noindex, nofollow, noarchive">
         @endif
@@ -24,7 +24,7 @@
         <meta property="og:title" content="{{ $profile->nickname }} のプロフィール">
         <meta property="og:description" content="{{ $description }}">
         <meta property="og:url" content="{{ $profile->public_url }}">
-        <meta property="og:site_name" content="{{ config('app.name', 'Profie') }}">
+        <meta property="og:site_name" content="{{ config('app.name', 'Profim') }}">
         <meta property="og:locale" content="ja_JP">
         @if ($ogImage)
             <meta property="og:image" content="{{ $ogImage }}">
@@ -89,7 +89,7 @@
                                  class="rounded-circle mx-auto mb-3 d-block"
                                  style="width: 88px; height: 88px; object-fit: cover; border: 1px solid var(--pt-public-card-border);">
                         @elseif ($profile->slug === 'demo')
-                            {{-- デモ専用：Profie ブランドカラーのグラデーションアバター（テーマに依存しない） --}}
+                            {{-- デモ専用：Profim ブランドカラーのグラデーションアバター（テーマに依存しない） --}}
                             <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle text-white fw-bold"
                                  aria-label="{{ $profile->nickname }} のアイコン"
                                  style="width: 88px; height: 88px; font-size: 2rem; background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); box-shadow: 0 6px 20px rgba(99,102,241,0.35); border: 3px solid rgba(255,255,255,0.95);">
@@ -230,7 +230,7 @@
                 @endif
 
                 <p class="text-center mt-4 mb-2 small pt-public-muted">
-                    <a href="/" class="text-decoration-none pt-public-muted">{{ config('app.name', 'Profie') }}</a> で作られたプロフィール
+                    <a href="/" class="text-decoration-none pt-public-muted">{{ config('app.name', 'Profim') }}</a> で作られたプロフィール
                 </p>
 
                 <p class="text-center mb-0 small pt-public-muted">

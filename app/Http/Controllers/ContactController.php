@@ -30,7 +30,7 @@ class ContactController extends Controller
             'body.max' => 'お問い合わせ内容は 2000 文字以内で入力してください。',
         ]);
 
-        $appName = config('app.name', 'Profie');
+        $appName = config('app.name', 'Profim');
         $recipient = config('services.contact.recipient', 'contact@profie.me');
         $receivedAt = now()->format('Y/m/d H:i');
 
@@ -53,7 +53,7 @@ class ContactController extends Controller
             Mail::raw($adminMessage, function ($msg) use ($validated, $recipient) {
                 $msg->to($recipient)
                     ->replyTo($validated['email'], $validated['name'])
-                    ->subject('[Profie] お問い合わせを受信しました');
+                    ->subject('[Profim] お問い合わせを受信しました');
             });
         } catch (\Throwable $e) {
             // 運営宛が失敗したらユーザー側にも返さない（不整合回避）
@@ -70,7 +70,7 @@ class ContactController extends Controller
         $userMessage = <<<EOT
         {$validated['name']} 様
 
-        このたびは Profie にお問い合わせいただきありがとうございます。
+        このたびは Profim にお問い合わせいただきありがとうございます。
         以下の内容で受け付けました。
 
         ─── お問い合わせ内容 ───────────────
@@ -86,14 +86,14 @@ class ContactController extends Controller
           {$recipient} 宛に直接メールでご連絡ください。
 
         ──
-        Profie 運営事務局
+        Profim 運営事務局
         https://profie.me/
         EOT;
 
         try {
             Mail::raw($userMessage, function ($msg) use ($validated) {
                 $msg->to($validated['email'], $validated['name'])
-                    ->subject('[Profie] お問い合わせを受け付けました');
+                    ->subject('[Profim] お問い合わせを受け付けました');
             });
         } catch (\Throwable $e) {
             // 自動返信失敗は致命的ではないので、ログだけ残してユーザーには通常完了表示
