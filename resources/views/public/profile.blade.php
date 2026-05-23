@@ -66,7 +66,7 @@
                         @endif
 
                         <h1 class="h3 fw-bold mb-1">{{ $profile->nickname }}</h1>
-                        <p class="small pt-public-muted mb-3">@{{ $profile->slug }}</p>
+                        <p class="small pt-public-muted mb-3">@@{{ $profile->slug }}</p>
 
                         @if ($profile->bio)
                             <p class="mb-0" style="white-space: pre-wrap;">{{ $profile->bio }}</p>
