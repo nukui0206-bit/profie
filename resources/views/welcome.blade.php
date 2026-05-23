@@ -28,6 +28,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+        <x-google-analytics />
     </head>
     <body class="d-flex flex-column min-vh-100 pt-lp-bg">
         <nav class="navbar navbar-expand-lg">
