@@ -64,9 +64,13 @@
                     </p>
                     <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mt-4">
                         <a href="{{ route('register') }}" class="btn btn-primary btn-lg px-4">無料ではじめる</a>
-                        <a href="#features" class="btn btn-outline-secondary btn-lg px-4">機能を見る</a>
+                        <a href="/u/demo" target="_blank" rel="noopener" class="btn btn-outline-secondary btn-lg px-4">
+                            <i class="bi bi-eye"></i> デモを見る
+                        </a>
                     </div>
-                    <p class="small text-muted mt-3 mb-0">登録 30 秒で完了</p>
+                    <p class="small text-muted mt-3 mb-0">
+                        登録 30 秒で完了 ・ <a href="#features" class="text-muted">機能の紹介はこちら</a>
+                    </p>
                 </div>
             </section>
 
