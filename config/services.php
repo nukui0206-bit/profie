@@ -42,4 +42,8 @@ return [
         'analytics_id' => env('GOOGLE_ANALYTICS_ID'),
     ],
 
+    'contact' => [
+        'recipient' => env('CONTACT_RECIPIENT', 'contact@profie.me'),
+    ],
+
 ];
