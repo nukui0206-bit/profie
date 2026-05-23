@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\Theme;
 use App\Models\User;
 use App\Services\Footprint\FootprintRecorder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PublicProfileController extends Controller
 {
-    public function show(string $slug, FootprintRecorder $footprintRecorder): View
+    public function show(string $slug, Request $request, FootprintRecorder $footprintRecorder): View
     {
         $profile = Profile::where('slug', $slug)
             ->where('is_published', true)
@@ -29,6 +31,24 @@ class PublicProfileController extends Controller
             ])
             ->firstOrFail();
 
+        // 公式デモプロフィール (slug=demo) のときだけ、?theme=xxx で表示テーマを差し替え。
+        // DB は変更せず、View レイヤだけ override する。
+        $availableThemes = collect();
+        $activeThemeKey = optional($profile->theme)->key;
+        if ($profile->slug === 'demo') {
+            $availableThemes = Theme::where('is_active', true)->orderBy('id')->get();
+            $themeKey = $request->query('theme');
+            if ($themeKey) {
+                $overrideTheme = $availableThemes->firstWhere('key', $themeKey);
+                if ($overrideTheme) {
+                    $profile->setRelation('theme', $overrideTheme);
+                    $profile->theme_id = $overrideTheme->id;
+                    $profile->theme_color = null;
+                    $activeThemeKey = $overrideTheme->key;
+                }
+            }
+        }
+
         // ページビュー（PV）は閲覧ごとに increment
         $profile->increment('view_count');
 
@@ -39,6 +59,6 @@ class PublicProfileController extends Controller
 
         $isLiked = $profile->isLikedBy(Auth::user());
 
-        return view('public.profile', compact('profile', 'isLiked'));
+        return view('public.profile', compact('profile', 'isLiked', 'availableThemes', 'activeThemeKey'));
     }
 }

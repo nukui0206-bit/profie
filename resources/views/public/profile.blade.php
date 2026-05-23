@@ -51,6 +51,30 @@
     <body class="d-flex flex-column min-vh-100 profile-public-page theme-{{ $themeKey }}"
           @if($accentStyle) style="{{ $accentStyle }}" @endif>
         <main class="flex-grow-1 py-4 py-md-5">
+            {{-- 公式デモプロフィール限定：テーマ切替バー（DB は変更せず ?theme=xxx で表示のみ差し替え） --}}
+            @if (isset($availableThemes) && $availableThemes->isNotEmpty())
+                <div class="container px-3 mb-3" style="max-width: 36rem;">
+                    <div class="rounded-3 p-3 text-center"
+                         style="background: rgba(255,255,255,0.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); color: #1f2937;">
+                        <p class="small fw-semibold mb-2" style="color: #4b5563;">
+                            <i class="bi bi-palette-fill" aria-hidden="true"></i> テーマを試す
+                        </p>
+                        <div class="d-inline-flex flex-wrap gap-1 justify-content-center">
+                            @foreach ($availableThemes as $t)
+                                <a href="?theme={{ $t->key }}"
+                                   class="btn btn-sm {{ $activeThemeKey === $t->key ? 'btn-dark' : 'btn-outline-dark' }}"
+                                   style="border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.8rem;">
+                                    {{ $t->name }}
+                                </a>
+                            @endforeach
+                        </div>
+                        <p class="small mb-0 mt-2" style="font-size: 0.7rem; color: #6b7280;">
+                            ※ デモ限定。自分のページでも登録後にテーマを選べます
+                        </p>
+                    </div>
+                </div>
+            @endif
+
             <div class="container px-3" style="max-width: 36rem;">
                 <div class="card border-0 shadow-sm pt-public-card">
                     <div class="card-body p-4 p-md-5 text-center">
