@@ -1,2 +1,28 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+# 認証関連は除外
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /verify-email
+Disallow: /confirm-password
+Disallow: /password
+Disallow: /auth/
+
+# マイページ・管理画面は除外
+Disallow: /dashboard
+Disallow: /mypage
+Disallow: /mypage/
+Disallow: /admin
+Disallow: /admin/
+
+# 通報フォーム
+Disallow: /reports
+
+# Laravel デバッグ系
+Disallow: /telescope
+Disallow: /horizon
+
+Sitemap: https://profie.me/sitemap.xml
