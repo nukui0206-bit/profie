@@ -116,7 +116,7 @@
                 <h2 class="h6 fw-bold mt-4">運営者情報</h2>
                 <ul class="small list-unstyled">
                     <li>サービス名：{{ config('app.name', 'Profim') }}</li>
-                    <li>運営者：株式会社 L'aide</li>
+                    <li>運営：Profim 運営事務局</li>
                     <li>連絡先：<a href="mailto:contact@profie.me">contact@profie.me</a></li>
                 </ul>
 
