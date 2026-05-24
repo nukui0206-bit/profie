@@ -59,8 +59,8 @@
                         <span class="pt-gradient-text">ひとつのページに。</span>
                     </h1>
                     <p class="lead mt-3">
-                        ニックネーム・好きなもの・SNS リンク・自己紹介。<br>
-                        64 問の質問とテーマ切替で、あなたらしさがそのまま伝わるプロフィールページ。<br>
+                        ニックネーム・好きなもの・SNS リンク・自己紹介。<br class="d-none d-md-inline">
+                        64 問の質問とテーマ切替で、あなたらしさがそのまま伝わるプロフィールページ。<br class="d-none d-md-inline">
                         基本機能はずっと無料で使えます。
                     </p>
                     <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mt-4">
