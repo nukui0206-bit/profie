@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::view('/terms', 'static.terms')->name('terms');
 Route::view('/privacy', 'static.privacy')->name('privacy');
+Route::view('/faq', 'static.faq')->name('faq');
 
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])
     ->name('sitemap')
