@@ -50,7 +50,12 @@
     </head>
     @php
         $themeKey = $profile->theme?->key ?? 'modern';
-        $accentStyle = $profile->theme_color ? "--pt-public-accent: {$profile->theme_color};" : '';
+        $tc = $profile->theme_color;
+        $accentStyle = $tc
+            ? "--pt-public-accent: {$tc};"
+                . "--pt-public-avatar-grad: linear-gradient(135deg, {$tc} 0%, color-mix(in srgb, {$tc} 55%, #fff) 100%);"
+                . "--pt-public-card-border: color-mix(in srgb, {$tc} 35%, transparent);"
+            : '';
     @endphp
     <body class="d-flex flex-column min-vh-100 profile-public-page theme-{{ $themeKey }}"
           @if($accentStyle) style="{{ $accentStyle }}" @endif>
