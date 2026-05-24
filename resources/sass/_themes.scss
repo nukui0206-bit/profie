@@ -163,24 +163,26 @@
 .profile-public-page.theme-font-garake,
 .theme-preview.theme-font-garake { --pt-public-font: 'Courier New', 'ＭＳ ゴシック', 'MS Gothic', monospace; }
 
-// ---- 背景パターン ----
+// ---- 背景パターン ----（公開ページ + テーマ編集プレビュー両方に効く） ----
 // none: 何もしない（テーマのラジアルグラデを消す）
-.profile-public-page.theme-pattern-none {
+.profile-public-page.theme-pattern-none,
+.theme-preview.theme-pattern-none {
   background: var(--pt-public-bg-base);
 }
 
-// gradient: テーマ標準のラジアルグラデ（デフォルト挙動を明示）
-// → クラス指定なしの時と同じ。指定しても挙動変えない（プリセット任せ）
+// gradient: テーマ標準のラジアルグラデ（プリセットの挙動任せ、追加 CSS なし）
 
 // dots: ドット柄
-.profile-public-page.theme-pattern-dots {
+.profile-public-page.theme-pattern-dots,
+.theme-preview.theme-pattern-dots {
   background:
     radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--pt-public-text) 14%, transparent) 1.5px, transparent 2px) 0 0 / 20px 20px,
     var(--pt-public-bg-base);
 }
 
 // stripes: 斜めストライプ
-.profile-public-page.theme-pattern-stripes {
+.profile-public-page.theme-pattern-stripes,
+.theme-preview.theme-pattern-stripes {
   background:
     repeating-linear-gradient(
       45deg,
@@ -193,7 +195,8 @@
 }
 
 // checker: 市松模様
-.profile-public-page.theme-pattern-checker {
+.profile-public-page.theme-pattern-checker,
+.theme-preview.theme-pattern-checker {
   background:
     linear-gradient(45deg, color-mix(in srgb, var(--pt-public-text) 5%, transparent) 25%, transparent 25%) 0 0 / 24px 24px,
     linear-gradient(-45deg, color-mix(in srgb, var(--pt-public-text) 5%, transparent) 25%, transparent 25%) 0 12px / 24px 24px,
@@ -203,14 +206,16 @@
 }
 
 // stars: 星キラキラ（SVG inline）
-.profile-public-page.theme-pattern-stars {
+.profile-public-page.theme-pattern-stars,
+.theme-preview.theme-pattern-stars {
   background:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='%23fbbf24' opacity='0.5'><path d='M30 5 L33 22 L49 22 L36 32 L41 48 L30 38 L19 48 L24 32 L11 22 L27 22 Z'/></g></svg>") 0 0 / 60px 60px,
     var(--pt-public-bg-base);
 }
 
 // hearts: ハート柄（SVG inline）
-.profile-public-page.theme-pattern-hearts {
+.profile-public-page.theme-pattern-hearts,
+.theme-preview.theme-pattern-hearts {
   background:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path d='M25 42 C12 30 5 24 5 16 C5 10 10 6 16 6 C20 6 23 9 25 12 C27 9 30 6 34 6 C40 6 45 10 45 16 C45 24 38 30 25 42 Z' fill='%23ff66cc' opacity='0.18'/></svg>") 0 0 / 40px 40px,
     var(--pt-public-bg-base);
