@@ -45,8 +45,9 @@
     color: var(--pt-public-accent);
   }
 
+  // Q. ラベルは accent じゃなく通常テキスト色に紐付け（メインカラー変更で変わらない）
   .pt-public-q {
-    color: var(--pt-public-accent);
+    color: var(--pt-public-text);
   }
 
   .pt-public-link-btn {

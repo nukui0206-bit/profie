@@ -15,7 +15,6 @@ class PublicProfileController extends Controller
     public function show(string $slug, Request $request, FootprintRecorder $footprintRecorder): View
     {
         $profile = Profile::where('slug', $slug)
-            ->where('is_published', true)
             ->whereHas('user', fn ($q) => $q->where('status', User::STATUS_ACTIVE))
             ->with([
                 'user',
@@ -30,6 +29,14 @@ class PublicProfileController extends Controller
                 'socialLinks',
             ])
             ->firstOrFail();
+
+        // 非公開プロフィールは「本人」または「管理者」だけ閲覧可
+        if (! $profile->is_published) {
+            $viewer = Auth::user();
+            if (! $viewer || ($viewer->id !== $profile->user_id && ! $viewer->isAdmin())) {
+                abort(404);
+            }
+        }
 
         // 公式デモプロフィール (slug=demo) のときだけ、?theme=xxx で表示テーマを差し替え。
         // DB は変更せず、View レイヤだけ override する。
