@@ -20,9 +20,28 @@ class Profile extends Model
         'bio',
         'theme_id',
         'theme_color',
+        'theme_font',
+        'theme_bg_color',
+        'theme_bg_pattern',
         'view_count',
         'like_count',
         'is_published',
+    ];
+
+    public const THEME_FONTS = [
+        'modern' => 'モダン（標準）',
+        'mincho' => '明朝（落ち着き）',
+        'garake' => 'ガラケー風（等幅）',
+    ];
+
+    public const THEME_BG_PATTERNS = [
+        'none' => '無地',
+        'gradient' => 'グラデ（テーマ標準）',
+        'dots' => 'ドット',
+        'stripes' => 'ストライプ',
+        'checker' => '市松',
+        'stars' => '星キラキラ',
+        'hearts' => 'ハート',
     ];
 
     protected function casts(): array

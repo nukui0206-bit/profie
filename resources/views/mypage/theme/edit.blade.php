@@ -93,13 +93,12 @@
             </div>
         </div>
 
-        {{-- メインカラー上書き --}}
+        {{-- カスタマイズ：メインカラー --}}
         <div class="card border-0 shadow-sm mb-4">
             <div class="card-body">
                 <h2 class="h6 fw-bold mb-3">メインカラー（任意）</h2>
                 <p class="text-muted small">
-                    プロフィール全体のメインカラーを自分好みに変更できます。<br>
-                    リンク・タグ・カード枠線などにまとめて反映されます（アバターはテーマプリセットの色のままになります）。「リセット」を押すとテーマ既定の色に戻ります。
+                    プロフィール全体のメインカラーを自分好みに変更できます。リンク・タグ・カード枠線などにまとめて反映されます（アバターはテーマプリセットの色のまま）。「リセット」を押すとテーマ既定の色に戻ります。
                 </p>
 
                 <div class="d-flex align-items-center gap-3 flex-wrap">
@@ -121,6 +120,92 @@
             </div>
         </div>
 
+        {{-- カスタマイズ：フォント --}}
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="h6 fw-bold mb-3">フォント（任意）</h2>
+                <p class="text-muted small">プロフィール全体の文字書体を切り替えられます。未選択時はテーマ既定の書体になります。</p>
+
+                <div class="row g-2">
+                    <div class="col-12 col-sm-3">
+                        <label class="d-block">
+                            <input type="radio" name="theme_font" value="" class="visually-hidden theme-font-radio" {{ old('theme_font', $profile->theme_font) ? '' : 'checked' }}>
+                            <div class="card theme-font-card text-center p-3 h-100" style="cursor: pointer;">
+                                <div class="small fw-bold">— 既定 —</div>
+                                <div class="small text-muted mt-1">テーマ標準</div>
+                            </div>
+                        </label>
+                    </div>
+                    @foreach ($fontOptions as $key => $label)
+                        <div class="col-12 col-sm-3">
+                            <label class="d-block">
+                                <input type="radio" name="theme_font" value="{{ $key }}" class="visually-hidden theme-font-radio" {{ old('theme_font', $profile->theme_font) === $key ? 'checked' : '' }}>
+                                <div class="card theme-font-card text-center p-3 h-100" style="cursor: pointer;">
+                                    <div class="fw-bold theme-font-sample-{{ $key }}" style="font-size: 1.1rem;">Aa あア</div>
+                                    <div class="small text-muted mt-1">{{ $label }}</div>
+                                </div>
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                <x-input-error :messages="$errors->get('theme_font')" />
+            </div>
+        </div>
+
+        {{-- カスタマイズ：背景色 --}}
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="h6 fw-bold mb-3">背景色（任意）</h2>
+                <p class="text-muted small">ページ全体の地色を上書きできます。未設定時はテーマ既定の背景色になります。</p>
+
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <input type="color" id="theme_bg_color_picker"
+                           value="{{ old('theme_bg_color', $profile->theme_bg_color ?? '#fafafa') }}"
+                           class="form-control form-control-color"
+                           style="width: 4rem; height: 3rem;">
+                    <input type="hidden" name="theme_bg_color" id="theme_bg_color_input"
+                           value="{{ old('theme_bg_color', $profile->theme_bg_color) }}">
+                    <code id="theme_bg_color_display" class="small">
+                        {{ old('theme_bg_color', $profile->theme_bg_color) ?: '（未設定）' }}
+                    </code>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="theme_bg_color_reset">リセット</button>
+                </div>
+                <x-input-error :messages="$errors->get('theme_bg_color')" />
+            </div>
+        </div>
+
+        {{-- カスタマイズ：背景パターン --}}
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="h6 fw-bold mb-3">背景パターン（任意）</h2>
+                <p class="text-muted small">ページ背景の装飾を切り替えられます。未選択時はテーマ既定（グラデ）になります。</p>
+
+                <div class="row g-2">
+                    <div class="col-6 col-sm-4 col-md-3">
+                        <label class="d-block">
+                            <input type="radio" name="theme_bg_pattern" value="" class="visually-hidden theme-pattern-radio" {{ old('theme_bg_pattern', $profile->theme_bg_pattern) ? '' : 'checked' }}>
+                            <div class="card theme-pattern-card p-2 h-100" style="cursor: pointer;">
+                                <div class="theme-pattern-thumb mb-2" style="height: 60px; background: linear-gradient(135deg, rgba(168,85,247,0.18), rgba(236,72,153,0.13)); border-radius: 0.375rem;"></div>
+                                <div class="small fw-bold text-center">既定</div>
+                            </div>
+                        </label>
+                    </div>
+                    @foreach ($patternOptions as $key => $label)
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <label class="d-block">
+                                <input type="radio" name="theme_bg_pattern" value="{{ $key }}" class="visually-hidden theme-pattern-radio" data-pattern-key="{{ $key }}" {{ old('theme_bg_pattern', $profile->theme_bg_pattern) === $key ? 'checked' : '' }}>
+                                <div class="card theme-pattern-card p-2 h-100" style="cursor: pointer;">
+                                    <div class="theme-pattern-thumb theme-pattern-thumb-{{ $key }} mb-2" style="height: 60px; border-radius: 0.375rem; background-color: #fafafa;"></div>
+                                    <div class="small fw-bold text-center">{{ $label }}</div>
+                                </div>
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                <x-input-error :messages="$errors->get('theme_bg_pattern')" />
+            </div>
+        </div>
+
         {{-- 大きなライブプレビュー --}}
         <div class="card border-0 shadow-sm mb-4">
             <div class="card-body">
@@ -130,10 +215,24 @@
                 </p>
 
                 @php($initialKey = $profile->theme?->key ?? 'modern')
-                @php($initialAccent = $profile->theme_color)
+                @php
+                    $initialAccent = $profile->theme_color;
+                    $initialBg = $profile->theme_bg_color;
+                    $initialFont = $profile->theme_font ? 'theme-font-' . $profile->theme_font : '';
+                    $initialPattern = ($profile->theme_bg_pattern && $profile->theme_bg_pattern !== 'gradient')
+                        ? 'theme-pattern-' . $profile->theme_bg_pattern : '';
+                    $previewStyle = 'padding: 1.5rem; min-height: 240px;';
+                    if ($initialAccent) {
+                        $previewStyle .= "--pt-public-accent: {$initialAccent};"
+                            . "--pt-public-card-border: color-mix(in srgb, {$initialAccent} 35%, transparent);";
+                    }
+                    if ($initialBg) {
+                        $previewStyle .= "--pt-public-bg-base: {$initialBg};";
+                    }
+                @endphp
                 <div id="live-preview"
-                     class="theme-preview theme-{{ $initialKey }}"
-                     style="padding: 1.5rem; min-height: 240px; {{ $initialAccent ? "--pt-public-accent: {$initialAccent};" : '' }}">
+                     class="theme-preview theme-{{ $initialKey }} {{ $initialFont }} {{ $initialPattern }}"
+                     style="{{ $previewStyle }}">
                     <div class="text-center mb-3">
                         <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center pt-public-avatar"
                              style="width: 56px; height: 56px; color: #fff; font-size: 1.5rem; font-weight: 700;">
@@ -217,6 +316,57 @@
                     display.textContent = '（未設定）';
                     applyAccent(null);
                 });
+
+                // 背景色ピッカー
+                const bgPicker = document.getElementById('theme_bg_color_picker');
+                const bgInput = document.getElementById('theme_bg_color_input');
+                const bgDisplay = document.getElementById('theme_bg_color_display');
+                const bgReset = document.getElementById('theme_bg_color_reset');
+                const applyBg = (color) => {
+                    if (color) preview.style.setProperty('--pt-public-bg-base', color);
+                    else preview.style.removeProperty('--pt-public-bg-base');
+                };
+                bgPicker?.addEventListener('input', () => {
+                    bgInput.value = bgPicker.value;
+                    bgDisplay.textContent = bgPicker.value;
+                    applyBg(bgPicker.value);
+                });
+                bgReset?.addEventListener('click', () => {
+                    bgInput.value = '';
+                    bgDisplay.textContent = '（未設定）';
+                    applyBg(null);
+                });
+
+                // フォント radio
+                document.querySelectorAll('.theme-font-radio').forEach(r => {
+                    r.addEventListener('change', () => {
+                        document.querySelectorAll('.theme-font-card').forEach(c => c.classList.remove('border-primary'));
+                        r.closest('label').querySelector('.theme-font-card')?.classList.add('border-primary');
+                        // 既存 theme-font-* クラスを削除
+                        [...preview.classList].forEach(c => {
+                            if (c.startsWith('theme-font-')) preview.classList.remove(c);
+                        });
+                        if (r.value) preview.classList.add('theme-font-' + r.value);
+                    });
+                });
+
+                // パターン radio
+                document.querySelectorAll('.theme-pattern-radio').forEach(r => {
+                    r.addEventListener('change', () => {
+                        document.querySelectorAll('.theme-pattern-card').forEach(c => c.classList.remove('border-primary'));
+                        r.closest('label').querySelector('.theme-pattern-card')?.classList.add('border-primary');
+                        [...preview.classList].forEach(c => {
+                            if (c.startsWith('theme-pattern-') && c !== 'theme-pattern-thumb') preview.classList.remove(c);
+                        });
+                        if (r.value && r.value !== 'gradient') preview.classList.add('theme-pattern-' + r.value);
+                    });
+                });
+
+                // 初期：選択中カードに border-primary
+                const selectedFontCard = document.querySelector('.theme-font-radio:checked')?.closest('label')?.querySelector('.theme-font-card');
+                selectedFontCard?.classList.add('border-primary');
+                const selectedPatternCard = document.querySelector('.theme-pattern-radio:checked')?.closest('label')?.querySelector('.theme-pattern-card');
+                selectedPatternCard?.classList.add('border-primary');
             })();
         </script>
     @endpush

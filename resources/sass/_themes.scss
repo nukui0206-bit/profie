@@ -148,3 +148,133 @@
   --pt-public-avatar-grad: linear-gradient(135deg, #ffb6c1 0%, #fef08a 50%, #bef264 100%);
   --pt-public-font: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
 }
+
+// ===========================================================
+// カスタマイズレイヤー（フォント / 背景パターン）
+// ===========================================================
+
+// ---- フォント上書き ----
+.profile-public-page.theme-font-modern,
+.theme-preview.theme-font-modern { --pt-public-font: 'Plus Jakarta Sans', 'Noto Sans JP', system-ui, sans-serif; }
+
+.profile-public-page.theme-font-mincho,
+.theme-preview.theme-font-mincho { --pt-public-font: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN', 'YuMincho', 'メイリオ', serif; }
+
+.profile-public-page.theme-font-garake,
+.theme-preview.theme-font-garake { --pt-public-font: 'Courier New', 'ＭＳ ゴシック', 'MS Gothic', monospace; }
+
+// ---- 背景パターン ----
+// none: 何もしない（テーマのラジアルグラデを消す）
+.profile-public-page.theme-pattern-none {
+  background: var(--pt-public-bg-base);
+}
+
+// gradient: テーマ標準のラジアルグラデ（デフォルト挙動を明示）
+// → クラス指定なしの時と同じ。指定しても挙動変えない（プリセット任せ）
+
+// dots: ドット柄
+.profile-public-page.theme-pattern-dots {
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--pt-public-text) 14%, transparent) 1.5px, transparent 2px) 0 0 / 20px 20px,
+    var(--pt-public-bg-base);
+}
+
+// stripes: 斜めストライプ
+.profile-public-page.theme-pattern-stripes {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      color-mix(in srgb, var(--pt-public-text) 5%, transparent) 0,
+      color-mix(in srgb, var(--pt-public-text) 5%, transparent) 8px,
+      transparent 8px,
+      transparent 16px
+    ),
+    var(--pt-public-bg-base);
+}
+
+// checker: 市松模様
+.profile-public-page.theme-pattern-checker {
+  background:
+    linear-gradient(45deg, color-mix(in srgb, var(--pt-public-text) 5%, transparent) 25%, transparent 25%) 0 0 / 24px 24px,
+    linear-gradient(-45deg, color-mix(in srgb, var(--pt-public-text) 5%, transparent) 25%, transparent 25%) 0 12px / 24px 24px,
+    linear-gradient(45deg, transparent 75%, color-mix(in srgb, var(--pt-public-text) 5%, transparent) 75%) 12px -12px / 24px 24px,
+    linear-gradient(-45deg, transparent 75%, color-mix(in srgb, var(--pt-public-text) 5%, transparent) 75%) -12px 0 / 24px 24px,
+    var(--pt-public-bg-base);
+}
+
+// stars: 星キラキラ（SVG inline）
+.profile-public-page.theme-pattern-stars {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='%23fbbf24' opacity='0.5'><path d='M30 5 L33 22 L49 22 L36 32 L41 48 L30 38 L19 48 L24 32 L11 22 L27 22 Z'/></g></svg>") 0 0 / 60px 60px,
+    var(--pt-public-bg-base);
+}
+
+// hearts: ハート柄（SVG inline）
+.profile-public-page.theme-pattern-hearts {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path d='M25 42 C12 30 5 24 5 16 C5 10 10 6 16 6 C20 6 23 9 25 12 C27 9 30 6 34 6 C40 6 45 10 45 16 C45 24 38 30 25 42 Z' fill='%23ff66cc' opacity='0.18'/></svg>") 0 0 / 40px 40px,
+    var(--pt-public-bg-base);
+}
+
+// ===========================================================
+// テーマ編集画面（/mypage/theme）のカスタマイズ UI 用
+// ===========================================================
+
+// フォント/パターン選択カード
+.theme-font-card,
+.theme-pattern-card {
+  border: 2px solid #e5e7eb;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  background: #fff;
+
+  &:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+  }
+
+  &.border-primary {
+    border-color: #6366f1 !important;
+    background: rgba(99, 102, 241, 0.04);
+  }
+}
+
+// フォントカード内のサンプル文字を実フォントで
+.theme-font-sample-modern { font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif; }
+.theme-font-sample-mincho { font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN', 'YuMincho', serif; }
+.theme-font-sample-garake { font-family: 'Courier New', 'ＭＳ ゴシック', monospace; }
+
+// パターン選択サムネイル（60px 高さ）
+.theme-pattern-thumb-none { background-color: #fafafa; }
+.theme-pattern-thumb-gradient {
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(168,85,247,0.22), transparent 55%),
+    radial-gradient(ellipse at 70% 70%, rgba(236,72,153,0.18), transparent 55%),
+    #fafafa;
+}
+.theme-pattern-thumb-dots {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.22) 1.5px, transparent 2px) 0 0 / 10px 10px,
+    #fafafa;
+}
+.theme-pattern-thumb-stripes {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0, rgba(0,0,0,0.10) 4px, transparent 4px, transparent 8px),
+    #fafafa;
+}
+.theme-pattern-thumb-checker {
+  background:
+    linear-gradient(45deg, rgba(0,0,0,0.10) 25%, transparent 25%) 0 0 / 12px 12px,
+    linear-gradient(-45deg, rgba(0,0,0,0.10) 25%, transparent 25%) 0 6px / 12px 12px,
+    linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.10) 75%) 6px -6px / 12px 12px,
+    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.10) 75%) -6px 0 / 12px 12px,
+    #fafafa;
+}
+.theme-pattern-thumb-stars {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path d='M15 3 L17 13 L26 13 L18 18 L21 27 L15 21 L9 27 L12 18 L4 13 L13 13 Z' fill='%23fbbf24' opacity='0.75'/></svg>") 0 0 / 30px 30px,
+    #fafafa;
+}
+.theme-pattern-thumb-hearts {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'><path d='M12.5 21 C6 15 2.5 12 2.5 8 C2.5 5 5 3 8 3 C10 3 11.5 4.5 12.5 6 C13.5 4.5 15 3 17 3 C20 3 22.5 5 22.5 8 C22.5 12 19 15 12.5 21 Z' fill='%23ff66cc' opacity='0.55'/></svg>") 0 0 / 20px 20px,
+    #fafafa;
+}

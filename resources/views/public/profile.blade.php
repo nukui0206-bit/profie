@@ -50,14 +50,23 @@
     </head>
     @php
         $themeKey = $profile->theme?->key ?? 'modern';
+        $fontClass = $profile->theme_font ? 'theme-font-' . $profile->theme_font : '';
+        $patternClass = ($profile->theme_bg_pattern && $profile->theme_bg_pattern !== 'gradient')
+            ? 'theme-pattern-' . $profile->theme_bg_pattern : '';
+
         $tc = $profile->theme_color;
-        $accentStyle = $tc
-            ? "--pt-public-accent: {$tc};"
-                . "--pt-public-card-border: color-mix(in srgb, {$tc} 35%, transparent);"
-            : '';
+        $bg = $profile->theme_bg_color;
+        $style = '';
+        if ($tc) {
+            $style .= "--pt-public-accent: {$tc};"
+                . "--pt-public-card-border: color-mix(in srgb, {$tc} 35%, transparent);";
+        }
+        if ($bg) {
+            $style .= "--pt-public-bg-base: {$bg};";
+        }
     @endphp
-    <body class="d-flex flex-column min-vh-100 profile-public-page theme-{{ $themeKey }}"
-          @if($accentStyle) style="{{ $accentStyle }}" @endif>
+    <body class="d-flex flex-column min-vh-100 profile-public-page theme-{{ $themeKey }} {{ $fontClass }} {{ $patternClass }}"
+          @if($style) style="{{ $style }}" @endif>
         <main class="flex-grow-1 py-4 py-md-5">
             {{-- 公式デモプロフィール限定：テーマ切替バー（DB は変更せず ?theme=xxx で表示のみ差し替え） --}}
             @if (isset($availableThemes) && $availableThemes->isNotEmpty())
