@@ -99,7 +99,7 @@
                 <h2 class="h6 fw-bold mb-3">メインカラー（任意）</h2>
                 <p class="text-muted small">
                     プロフィール全体のメインカラーを自分好みに変更できます。<br>
-                    リンク・タグ・アバター・カード枠線などにまとめて反映されます。「リセット」を押すとテーマ既定の色に戻ります。
+                    リンク・タグ・カード枠線などにまとめて反映されます（アバターはテーマプリセットの色のままになります）。「リセット」を押すとテーマ既定の色に戻ります。
                 </p>
 
                 <div class="d-flex align-items-center gap-3 flex-wrap">
@@ -177,11 +177,9 @@
                 const applyAccent = (color) => {
                     if (color) {
                         preview.style.setProperty('--pt-public-accent', color);
-                        preview.style.setProperty('--pt-public-avatar-grad', `linear-gradient(135deg, ${color} 0%, color-mix(in srgb, ${color} 55%, #fff) 100%)`);
                         preview.style.setProperty('--pt-public-card-border', `color-mix(in srgb, ${color} 35%, transparent)`);
                     } else {
                         preview.style.removeProperty('--pt-public-accent');
-                        preview.style.removeProperty('--pt-public-avatar-grad');
                         preview.style.removeProperty('--pt-public-card-border');
                     }
                 };
