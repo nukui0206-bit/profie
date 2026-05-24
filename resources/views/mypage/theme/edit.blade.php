@@ -28,7 +28,7 @@
 
                 <div class="row g-3">
                     @foreach ($themes as $theme)
-                        @php($selected = (int) old('theme_id', $profile->theme_id) === $theme->id)
+                        @php $selected = (int) old('theme_id', $profile->theme_id) === $theme->id; @endphp
                         <div class="col-12 col-sm-6 col-md-4">
                             <label class="d-block h-100" style="cursor: pointer;">
                                 <input type="radio" name="theme_id" value="{{ $theme->id }}"
@@ -66,7 +66,7 @@
                     @endforeach
 
                     {{-- 「指定なし」 --}}
-                    @php($noneSelected = !old('theme_id', $profile->theme_id))
+                    @php $noneSelected = !old('theme_id', $profile->theme_id); @endphp
                     <div class="col-12 col-sm-6 col-md-4">
                         <label class="d-block h-100" style="cursor: pointer;">
                             <input type="radio" name="theme_id" value=""
@@ -214,8 +214,8 @@
                     上で選んだテーマと色が、公開ページにどう反映されるかをそのまま確認できます。
                 </p>
 
-                @php($initialKey = $profile->theme?->key ?? 'modern')
                 @php
+                    $initialKey = $profile->theme?->key ?? 'modern';
                     $initialAccent = $profile->theme_color;
                     $initialBg = $profile->theme_bg_color;
                     $initialFont = $profile->theme_font ? 'theme-font-' . $profile->theme_font : '';
