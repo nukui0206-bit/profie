@@ -45,6 +45,7 @@
         </div>
 
         <div class="mt-4 small text-muted">
+            <a href="{{ route('faq') }}" class="text-decoration-none me-3">よくある質問</a>
             <a href="{{ route('terms') }}" class="text-decoration-none me-3">利用規約</a>
             <a href="{{ route('privacy') }}" class="text-decoration-none me-3">プライバシー</a>
             <a href="{{ route('contact') }}" class="text-decoration-none">お問い合わせ</a>

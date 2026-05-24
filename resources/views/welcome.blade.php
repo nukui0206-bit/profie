@@ -137,6 +137,7 @@
             <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-muted">
                 <span>© {{ date('Y') }} Profim</span>
                 <div class="d-flex gap-3 flex-wrap">
+                    <a href="{{ route('faq') }}" class="text-muted text-decoration-none">よくある質問</a>
                     <a href="{{ route('terms') }}" class="text-muted text-decoration-none">利用規約</a>
                     <a href="{{ route('privacy') }}" class="text-muted text-decoration-none">プライバシー</a>
                     <a href="{{ route('contact') }}" class="text-muted text-decoration-none">お問い合わせ</a>
